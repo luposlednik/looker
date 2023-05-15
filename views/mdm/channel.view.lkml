@@ -1,6 +1,7 @@
 view: channel {
-   sql_table_name: dax_mdm.channel
-   label: "Master Data de channel";;
+   sql_table_name: dax_mdm.channel;;
+
+  label: "Master Data de channel"
 
 
  dimension: des_channel {
