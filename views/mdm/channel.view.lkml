@@ -8,6 +8,7 @@ view: channel {
    type: string
    label: "Descrição do canal de entrada"
    description: "Descrição do canal de entrada"
+   group_label: "Canal de Entrada"
    sql: ${TABLE}.des_channel ;;
    link: {
       label: "Datapedia"
