@@ -18,11 +18,13 @@ view: acquirer {
   dimension: idt_acquirer {
     type: number
     sql: ${TABLE}.idt_acquirer ;;
+    group_label: "Adquirente"
   }
 
   dimension: nam_acquirer {
     type: string
     sql: ${TABLE}.nam_acquirer ;;
+    group_label: "Adquirente"
   }
 
   measure: count {

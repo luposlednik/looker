@@ -1,6 +1,8 @@
 view: ent_tpv_summary {
   sql_table_name: dax.ent_tpv_summary ;;
 
+  view_label: "TPV"
+
   dimension: cod_card_category {
     type: string
     sql: ${TABLE}.cod_card_category ;;
@@ -73,6 +75,7 @@ view: ent_tpv_summary {
   dimension: idt_acquirer {
     type: number
     sql: ${TABLE}.idt_acquirer ;;
+    group_label: "Adquirente"
   }
 
   dimension: idt_acquirer_category {
@@ -168,6 +171,7 @@ view: ent_tpv_summary {
   dimension: ind_channel {
     type: string
     sql: ${TABLE}.ind_channel ;;
+    group_label: "Canal de Entrada"
   }
 
   dimension: ind_checkout_type {
