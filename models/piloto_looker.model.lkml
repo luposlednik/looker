@@ -29,13 +29,7 @@ explore:  ent_tpv_summary {
     view_label: "TPV"
   }
 
-  join: acquirer_category{
-    type: left_outer
-    sql_on: ${acquirer_category.idt_acquirer_category} = ${ent_tpv_summary.idt_acquirer_category} ;;
-    relationship: one_to_many
-    fields: [acquirer_category.des_acquirer_category,acquirer_category.idt_segment_bacen]
-    view_label: "TPV"
-  }
+
 
   join: card_category{
     type: left_outer
