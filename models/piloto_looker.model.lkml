@@ -29,8 +29,6 @@ explore:  ent_tpv_summary {
     view_label: "TPV"
   }
 
-
-
   join: card_category{
     type: left_outer
     sql_on: ${card_category.cod_card_category} = ${ent_tpv_summary.cod_card_category} ;;

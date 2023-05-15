@@ -1,7 +1,6 @@
 view: ent_tpv_summary {
   sql_table_name: dax.ent_tpv_summary;;
-  label: "Tabela consolidade com os principais indicadores para análise de TPV"
-
+  label: "TPV"
 
   measure: num_net_cred_slip {
     type: sum
@@ -368,6 +367,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.ind_channel ;;
     label: "Canal de Entrada"
     description: "Canal de Entrada"
+    group_label: "Canal de Entrada"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-IND_CHANNEL"
