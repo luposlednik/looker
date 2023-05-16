@@ -5,6 +5,7 @@ include: "/views/produtos/*.lkml"
 include: "/views/mdm/*.lkml"
 
 
+
 datagroup: piloto_looker_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
