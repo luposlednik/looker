@@ -19,6 +19,13 @@ explore:  ent_tpv_summary {
   description: "Essa visão explora o TPV no detalhe"
   group_label: "Tpv detalhado"
 
+  join: ent_customer_psp {
+    type: left_outer
+    sql_on: ${ent_tpv_summary.idt_safepay_creditor} = ${ent_customer_psp.idt_safepay_user} ;;
+    relationship: many_to_one
+    view_label: "Customer"
+  }
+
   join: acquirer{
     type: left_outer
     sql_on: ${acquirer.idt_acquirer} = ${ent_tpv_summary.idt_acquirer} ;;
