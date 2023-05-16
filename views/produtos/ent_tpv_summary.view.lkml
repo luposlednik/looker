@@ -2,11 +2,18 @@ view: ent_tpv_summary {
   sql_table_name: dax.ent_tpv_summary;;
   label: "TPV"
 
+
+  measure: count {
+    type: count
+    drill_fields: []
+  }
+
   measure: num_net_cred_slip {
     type: sum
     sql: ${TABLE}.num_net_cred_slip ;;
     label: "Taxa Boleto Credor Liquido"
     description: "Taxa Boleto Credor Liquido"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_NET_CRED_SLIP"
@@ -14,8 +21,8 @@ view: ent_tpv_summary {
     }
   }
 
-  measure: num_bin_card {
-    type: sum
+  dimension: num_bin_card {
+    type: string
     sql: ${TABLE}.num_bin_card ;;
     label: "Bin do Cartão Titular"
     description: "Bin do Cartão Titular"
@@ -31,6 +38,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_installment_card_debt ;;
     label: "Taxa de Parcelamento para o comprador"
     description: "Taxa de Parcelamento para o comprador"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_INSTALLMENT_CARD_DEBT"
@@ -55,6 +63,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_gross_cred_slip ;;
     label: "Taxa de Boleto Credor "
     description: "Taxa de Boleto Credor "
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_CRED_SLIP"
@@ -79,6 +88,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_net_debit_slip ;;
     label: "Taxa de Boleto Devedor Liquido"
     description: "Taxa de Boleto Devedor Liquido"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_NET_DEBIT_SLIP"
@@ -91,6 +101,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_tpv_value ;;
     label: "Valor do TPV"
     description: "Valor do TPV"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_TPV_VALUE"
@@ -103,6 +114,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_net_fee_financial_institution ;;
     label: "Fee da Bandeira Liquido"
     description: "Fee da Bandeira Liquido"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_NET_FEE_FINANCIAL_INSTITUTION"
@@ -139,6 +151,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_prepaid_fee ;;
     label: "Taxa de Pre-pago"
     description: "Taxa de Pre-pago"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_PREPAID_FEE"
@@ -151,6 +164,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.qty_payment ;;
     label: "Quantidade de pagamento"
     description: "Quantidade de pagamento"
+    group_label: "Quantidades"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-QTY_PAYMENT"
@@ -199,6 +213,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_fee_tax ;;
     label: "Taxa de Repasse para Aplicacao"
     description: "Taxa de Repasse para Aplicacao"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_FEE_TAX"
@@ -211,6 +226,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_gross_debit_slip ;;
     label: "Taxa de Boleto devedor"
     description: "Taxa de Boleto devedor"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_DEBIT_SLIP"
@@ -247,6 +263,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_creditor_tax_value ;;
     label: "Valor Total Taxas Credor"
     description: "Valor Total Taxas Credor"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_CREDITOR_TAX_VALUE"
@@ -259,6 +276,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_gross_bill_cost ;;
     label: "Custo do Boleto Bruto"
     description: "Custo do Boleto Bruto"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_BILL_COST"
@@ -331,6 +349,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_gross_revenue ;;
     label: "Receita Bruta"
     description: "Receita Bruta"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_REVENUE"
@@ -343,6 +362,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.qty_safepay_creditor ;;
     label: "Quantidade de vendedor distinto"
     description: "Quantidade de vendedor distinto"
+    group_label: "Quantidades"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-QTY_SAFEPAY_CREDITOR"
@@ -440,6 +460,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_cred_slip ;;
     label: "Tarifa de Boleto - Vendedor"
     description: "Tarifa de Boleto - Vendedor"
+    group_label: "Tarifas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_CRED_SLIP"
@@ -452,6 +473,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.qty_transaction ;;
     label: "Quantidade de transação"
     description: "Quantidade de transação"
+    group_label: "Quantidades"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-QTY_TRANSACTION"
@@ -464,6 +486,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_installment_card_cred ;;
     label: "Taxa de Parcelamento para o vendedor"
     description: "Taxa de Parcelamento para o vendedor"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_INSTALLMENT_CARD_CRED"
@@ -476,6 +499,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_freight_value ;;
     label: "Valor do Frete"
     description: "Valor do Frete"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_FREIGHT_VALUE"
@@ -561,8 +585,9 @@ view: ent_tpv_summary {
   measure: num_gross_fee_amount {
     type: sum
     sql: ${TABLE}.num_gross_fee_amount ;;
-    label: "Custo da Transação  "
-    description: "Custo da Transação  "
+    label: "Custo da Transação"
+    description: "Custo da Transação"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_FEE_AMOUNT"
@@ -575,6 +600,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_intermediation_tri ;;
     label: "Tarifa de Intermediacao"
     description: "Tarifa de Intermediacao"
+    group_label: "Tarifas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_INTERMEDIATION_TRI"
@@ -587,6 +613,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_net_revenue ;;
     label: "Receita Liquida"
     description: "Receita Liquida"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_NET_REVENUE"
@@ -611,6 +638,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_deb_slip ;;
     label: "Tarifa de Boleto - Comprador"
     description: "Tarifa de Boleto - Comprador"
+    group_label: "Tarifas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_DEB_SLIP"
@@ -623,6 +651,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_intermediation_txi ;;
     label: "Taxa de Intermediacao"
     description: "Taxa de Intermediacao"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_INTERMEDIATION_TXI"
@@ -633,8 +662,9 @@ view: ent_tpv_summary {
   measure: num_gross_cost_payware {
     type: sum
     sql: ${TABLE}.num_gross_cost_payware ;;
-    label: "Custo do Payware Bruto  "
-    description: "Custo do Payware Bruto  "
+    label: "Custo do Payware Bruto"
+    description: "Custo do Payware Bruto"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_COST_PAYWARE"
@@ -647,6 +677,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_net_fee_amount ;;
     label: "Fee Amount Liquido"
     description: "Fee Amount Liquido"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_NET_FEE_AMOUNT"
@@ -683,6 +714,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.idt_acquirer ;;
     label: "Identificação do adquirente"
     description: "Identificação do adquirente"
+    group_label: "Adquirente"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-IDT_ACQUIRER"
@@ -690,8 +722,8 @@ view: ent_tpv_summary {
     }
   }
 
-  measure: num_millisec_escrow {
-    type: sum
+  dimension: num_millisec_escrow {
+    type: string
     sql: ${TABLE}.num_millisec_escrow ;;
     label: "Tempo Escrow (Dias)"
     description: "Tempo Escrow (Dias)"
@@ -750,8 +782,8 @@ view: ent_tpv_summary {
     }
   }
 
-  measure: num_installment_qty {
-    type: sum
+  dimension: num_installment_qty {
+    type: string
     sql: ${TABLE}.num_installment_qty ;;
     label: "Numero de Parcelas do Cartao"
     description: "Numero de Parcelas do Cartao"
@@ -767,6 +799,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_debtor_discount_value ;;
     label: "Valor de desconto que o devedor usou na transação promoção"
     description: "Valor de desconto que o devedor usou na transação promoção"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_DEBTOR_DISCOUNT_VALUE"
@@ -779,6 +812,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_transaction_canceled_value ;;
     label: "Valor Cancelado"
     description: "Valor Cancelado"
+    group_label: "Valores"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_TRANSACTION_CANCELED_VALUE"
@@ -818,6 +852,7 @@ view: ent_tpv_summary {
     sql: ${TABLE}.num_gross_fee_financial_institution ;;
     label: "Fee da Bandeira Bruto"
     description: "Fee da Bandeira Bruto"
+    group_label: "Taxas"
     link: {
       label: "Datapedia"
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_GROSS_FEE_FINANCIAL_INSTITUTION"
@@ -836,4 +871,5 @@ view: ent_tpv_summary {
       icon_url: "@{url_datapedia_ico}"
     }
   }
+
 }

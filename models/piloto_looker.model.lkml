@@ -10,12 +10,10 @@ datagroup: piloto_looker_default_datagroup {
   max_cache_age: "1 hour"
 }
 
-
 persist_with: piloto_looker_default_datagroup
 
 #Label do Analise do Produto, onde armazenas os Looks de um assunto/produto especifico
 label: "Análise de TPV"
-
 
 explore:  ent_tpv_summary {
   description: "Essa visão explora o TPV no detalhe"
@@ -24,7 +22,7 @@ explore:  ent_tpv_summary {
   join: acquirer{
     type: left_outer
     sql_on: ${acquirer.idt_acquirer} = ${ent_tpv_summary.idt_acquirer} ;;
-    relationship: one_to_many
+    relationship: many_to_one
     fields: [acquirer.nam_acquirer]
     view_label: "TPV"
   }
@@ -32,7 +30,7 @@ explore:  ent_tpv_summary {
   join: card_category{
     type: left_outer
     sql_on: ${card_category.cod_card_category} = ${ent_tpv_summary.cod_card_category} ;;
-    relationship: one_to_many
+    relationship: many_to_one
     fields: [card_category.des_card_category]
     view_label: "TPV"
   }
@@ -40,10 +38,9 @@ explore:  ent_tpv_summary {
   join: channel{
     type: left_outer
     sql_on: ${channel.ind_channel} = ${ent_tpv_summary.ind_channel} ;;
-    relationship: one_to_many
+    relationship: many_to_one
     fields: [channel.des_channel]
     view_label: "TPV"
   }
-
 
 }
