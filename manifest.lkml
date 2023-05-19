@@ -12,5 +12,12 @@ constant: url_datapedia {
 
 constant: url_datapedia_ico{
   value: "https://datapedia.intranet.pags/_next/image?url=%2F_next%2Fstatic%2F644a6bf0e8d5bc5942dfe20a4448243a.svg&w=48&q=75"
+}
 
+constant: url_idm{
+  value: "https://idm.uolcorp.intranet/identityiq/home.jsf"
+}
+
+constant: url_idm_ico{
+  value: "https://cdn-icons-png.flaticon.com/512/2830/2830604.png"
 }

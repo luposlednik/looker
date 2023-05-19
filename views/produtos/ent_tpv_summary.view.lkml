@@ -3,6 +3,10 @@ view: ent_tpv_summary {
   label: "TPV"
 
 
+  #Adiciona validação de permissão de acesso para a tabela
+  required_access_grants: [grant_tpv]
+
+
   measure: count {
     type: count
     drill_fields: []
@@ -23,7 +27,14 @@ view: ent_tpv_summary {
 
   dimension: num_bin_card {
     type: string
-    sql: ${TABLE}.num_bin_card ;;
+
+    sql:
+    {% if _user_attributes['grant_level_sb'] == 'YES' %}
+      ${TABLE}.num_bin_card
+    {% else %}
+      'Precisa de acesso Sensibilidade'
+    {% endif %}  ;;
+
     label: "Bin do Cartão Titular"
     description: "Bin do Cartão Titular"
     link: {
@@ -31,6 +42,13 @@ view: ent_tpv_summary {
       url: "@{url_datapedia}DAX-ENT_TPV_SUMMARY-NUM_BIN_CARD"
       icon_url: "@{url_datapedia_ico}"
     }
+
+    link: {
+      label: "Esta informação possui Sigilo Bancário - Solicite Acesso aqui"
+      url: "@{url_idm}"
+      icon_url: "@{url_idm_ico}"
+    }
+
   }
 
   measure: num_installment_card_debt {
