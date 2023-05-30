@@ -33,6 +33,8 @@ explore:  ent_tpv_summary {
   #Nome que aparece no Explorer
   label: "Tpv detalhado"
 
+  view_label: "TPV"
+
   join: ent_customer_psp {
     type: left_outer
     sql_on: ${ent_tpv_summary.idt_safepay_creditor} = ${ent_customer_psp.idt_safepay_user} ;;
